@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>高知たび 7/10–7/11｜ふたりの行きたいリスト</title>
+<meta name="description" content="高知1泊2日旅行の候補スポット・グルメ・お土産まとめ。ふたりで見て行き先を選ぶページ。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌊</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F7F6; --card:#FFFFFF; --ink:#1E3538; --sub:#5B7377; --line:#DCE7E6;
+  --brand:#0E7C86; --brand-deep:#0A5560; --brand-pale:#E3F1F2;
+  --red:#D65449; --red-pale:#FBEBE9;
+  --orange:#DD7A28; --orange-pale:#FCF0E3;
+  --green:#4E8F55; --green-pale:#EAF3EB;
+  --blue:#3E6FB0; --blue-pale:#E9F0F9;
+  --yuzu:#F2C24B; --yuzu-pale:#FBF3DC;
+  --radius:18px;
+  --shadow:0 2px 10px rgba(14,84,96,.08);
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{font-family:'Zen Kaku Gothic New',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px}
+h1,h2,h3,.maru{font-family:'Zen Maru Gothic',sans-serif}
+img{max-width:100%;display:block}
+a{color:var(--brand)}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+/* ===== hero ===== */
+.hero{background:linear-gradient(160deg,#0A5560 0%,#0E7C86 55%,#2AA3AD 100%);color:#fff;padding:44px 22px 58px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:26px;background:var(--bg);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cpath d='M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z'/%3E%3C/svg%3E") center/100% 100%;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60' preserveAspectRatio='none'%3E%3Cpath d='M0,30 C150,60 350,0 600,30 C850,60 1050,0 1200,30 L1200,60 L0,60 Z'/%3E%3C/svg%3E") center/100% 100%}
+.hero .date{display:inline-block;font-weight:700;font-size:13px;letter-spacing:.14em;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:99px;padding:4px 14px;margin-bottom:14px}
+.hero h1{font-size:clamp(30px,8.5vw,44px);font-weight:900;letter-spacing:.06em;line-height:1.25}
+.hero h1 small{display:block;font-size:.42em;font-weight:700;letter-spacing:.3em;opacity:.85;margin-top:6px}
+.hero p{margin-top:12px;font-size:13.5px;opacity:.92;max-width:34em}
+.hero .heart-hint{margin-top:14px;font-size:12.5px;background:rgba(255,255,255,.14);border-radius:12px;padding:8px 12px;display:inline-flex;gap:6px;align-items:center}
+
+/* ===== nav ===== */
+.nav{position:sticky;top:0;z-index:50;background:rgba(242,247,246,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{flex:none;text-decoration:none;font-weight:700;font-size:13px;padding:7px 14px;border-radius:99px;background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.nav a .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+
+/* ===== layout ===== */
+.wrap{max-width:680px;margin:0 auto;padding:0 16px 120px}
+section{padding-top:34px}
+.sec-head{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+.sec-head h2{font-size:22px;font-weight:900;letter-spacing:.04em}
+.sec-head .count{font-size:12px;color:var(--sub);font-weight:700}
+.sec-lede{font-size:13px;color:var(--sub);margin-bottom:16px}
+.sec-head .bar{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;font-size:14px;flex:none;align-self:center;color:#fff}
+#spots .bar{background:var(--red)} #eats .bar{background:var(--orange)}
+#gourmet .bar{background:var(--green)} #omiyage .bar{background:var(--blue)}
+
+/* ===== notice ===== */
+.notice{margin-top:26px;background:var(--yuzu-pale);border:1.5px solid var(--yuzu);border-radius:var(--radius);padding:14px 16px;font-size:13.5px}
+.notice strong{color:#8A6410}
+.area-guide{margin-top:12px;background:var(--brand-pale);border-radius:var(--radius);padding:14px 16px;font-size:13px}
+.area-guide .ag-title{font-family:'Zen Maru Gothic',sans-serif;font-weight:700;font-size:14px;color:var(--brand-deep);margin-bottom:8px}
+.area-guide ul{list-style:none}
+.area-guide li{display:flex;gap:8px;padding:3px 0}
+.area-guide li b{flex:none;color:var(--brand-deep)}
+.area-guide .warn{margin-top:8px;font-weight:700;color:#8A6410}
+
+/* ===== spot cards ===== */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;margin-bottom:18px;position:relative}
+.card .ph{position:relative;aspect-ratio:16/10;background:#D8E5E4}
+.card .ph img{width:100%;height:100%;object-fit:cover}
+.chip-row{position:absolute;left:10px;bottom:10px;display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:11.5px;font-weight:700;color:#fff;background:rgba(10,60,68,.72);backdrop-filter:blur(3px);border-radius:99px;padding:3px 10px}
+.card .body{padding:16px 16px 14px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.05em;margin-bottom:2px}
+#spots .eyebrow{color:#B7382F} #eats .eyebrow{color:#A85A11}
+.card h3{font-size:19px;font-weight:900;letter-spacing:.03em;padding-right:44px}
+.card .desc{font-size:13.5px;color:#3C5457;margin-top:6px}
+.meta{margin-top:10px;display:grid;gap:4px;font-size:12.5px;color:var(--sub)}
+.meta div{display:flex;gap:7px}
+.meta .i{flex:none}
+.tips{margin-top:10px;font-size:12.5px;background:#F5F9F8;border-radius:12px}
+.tips summary{cursor:pointer;font-weight:700;color:var(--brand-deep);padding:8px 12px;list-style:none}
+.tips summary::before{content:"💡 ";}
+.tips summary::-webkit-details-marker{display:none}
+.tips p{padding:0 12px 10px;color:#3C5457}
+.links{display:flex;gap:8px;margin-top:12px}
+.links a{flex:1;text-align:center;text-decoration:none;font-weight:700;font-size:13px;padding:9px 0;border-radius:12px}
+.links .map{background:var(--brand);color:#fff}
+.links .site{background:var(--brand-pale);color:var(--brand-deep)}
+
+/* ===== heart ===== */
+.heart{position:absolute;top:10px;right:10px;z-index:2;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.92);box-shadow:0 1px 6px rgba(0,0,0,.18);font-size:18px;display:grid;place-items:center;transition:transform .15s}
+.heart:active{transform:scale(1.25)}
+.heart::after{content:"🤍"}
+.picked .heart::after{content:"❤️"}
+.mini-card .heart,.eat-card .heart{width:32px;height:32px;font-size:15px;box-shadow:none;background:#F2F7F6}
+
+/* ===== eat cards ===== */
+.subgroup{font-size:13px;font-weight:900;color:#A85A11;margin:20px 0 10px;letter-spacing:.06em}
+.subgroup::before{content:"― "}
+.eat-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 16px;margin-bottom:12px;position:relative}
+.eat-card .top{display:flex;gap:12px;align-items:flex-start}
+.eat-card .avatar{flex:none;width:46px;height:46px;border-radius:14px;background:var(--orange-pale);display:grid;place-items:center;font-size:24px}
+.eat-card h3{font-size:16.5px;padding-right:38px}
+.eat-card .catch{font-size:12px;font-weight:700;color:#A85A11}
+.eat-card .desc{font-size:13px;color:#3C5457;margin-top:8px}
+.eat-card .meta{margin-top:8px}
+.eat-card .links{margin-top:10px}
+
+/* ===== grid items (gourmet / omiyage) ===== */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mini-card{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:12px 12px 10px;position:relative;display:flex;flex-direction:column}
+.mini-card .emoji{font-size:26px;line-height:1;margin-bottom:6px}
+.mini-card h3{font-size:14.5px;line-height:1.4;padding-right:30px}
+.mini-card .catch{font-size:11.5px;color:var(--sub);margin-top:2px;flex-grow:0}
+.badges{display:flex;gap:5px;flex-wrap:wrap;margin-top:7px}
+.badge{font-size:10.5px;font-weight:700;border-radius:99px;padding:2px 8px}
+.b-must{background:var(--green-pale);color:#35703C}
+.b-shun{background:var(--yuzu-pale);color:#6E4C05}
+.b-off{background:#EEEEEE;color:#595959}
+.b-price{background:var(--blue-pale);color:#2F568C}
+.mini-card .where{font-size:11.5px;color:var(--sub);margin-top:7px}
+.mini-card .where::before{content:"📍 "}
+.mini-card details{margin-top:6px;font-size:12px}
+.mini-card summary{cursor:pointer;color:var(--brand);font-weight:700;font-size:11.5px;list-style:none}
+.mini-card summary::-webkit-details-marker{display:none}
+.mini-card summary::after{content:" ▾"}
+.mini-card details[open] summary::after{content:" ▴"}
+.mini-card details p{color:#3C5457;margin-top:4px}
+.legend{font-size:12px;color:var(--sub);margin-bottom:12px}
+
+/* ===== float bar & panel ===== */
+.floatbar{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:60;background:var(--brand-deep);color:#fff;border-radius:99px;padding:11px 20px;font-weight:900;font-size:13.5px;box-shadow:0 6px 20px rgba(10,85,96,.4);display:flex;gap:6px;align-items:center;white-space:nowrap;transition:opacity .2s}
+.floatbar[hidden]{display:none}
+.panel-bg{position:fixed;inset:0;background:rgba(10,40,45,.5);z-index:70;display:none}
+.panel-bg.open{display:block}
+.panel{position:fixed;left:0;right:0;bottom:0;z-index:71;background:#fff;border-radius:24px 24px 0 0;max-height:78vh;overflow-y:auto;padding:20px 20px 30px;transform:translateY(105%);transition:transform .25s ease;box-shadow:0 -8px 30px rgba(0,0,0,.2)}
+.panel.open{transform:none}
+.panel h2{font-size:18px;margin-bottom:4px}
+.panel .hint{font-size:12px;color:var(--sub);margin-bottom:12px}
+.panel .pcat{font-size:12.5px;font-weight:900;margin:12px 0 6px}
+.panel ul{list-style:none}
+.panel li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.panel li button{font-size:12px;color:#B55;font-weight:700;flex:none}
+.panel .copy{width:100%;margin-top:16px;background:var(--brand);color:#fff;font-weight:900;font-size:15px;padding:13px;border-radius:14px}
+.panel .close{position:absolute;top:14px;right:16px;font-size:22px;color:var(--sub)}
+.panel .empty{color:var(--sub);font-size:13px;padding:20px 0;text-align:center}
+
+footer{margin-top:44px;text-align:center;font-size:11.5px;color:var(--sub);padding-bottom:8px}
+
+@media(min-width:560px){
+  .grid{grid-template-columns:1fr 1fr 1fr}
+  .card .ph{aspect-ratio:16/8}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.panel{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="date">2026.7.10 FRI — 7.11 SAT</span>
+  <h1>高知たび<small>KOCHI TRIP GUIDE</small></h1>
+  <p>友だちオススメの全スポット＆グルメを調査してまとめたよ。ふたりで見ながら、行きたいところを選ぼう。</p>
+  <span class="heart-hint">🤍をタップ → ❤️で「行きたいリスト」に追加されるよ</span>
+</header>
+
+<nav class="nav">
+  <a href="#spots"><span class="dot" style="background:var(--red)"></span>観光地</a>
+  <a href="#eats"><span class="dot" style="background:var(--orange)"></span>食事処</a>
+  <a href="#gourmet"><span class="dot" style="background:var(--green)"></span>グルメ</a>
+  <a href="#omiyage"><span class="dot" style="background:var(--blue)"></span>お土産</a>
+</nav>
+
+<main class="wrap">
+
+  <div class="notice">
+    <strong>⚠️ 日曜市は日曜だけ開催</strong> → 今回の金・土は開かれません。代わりに <strong>7/10(金)朝は「金曜市」</strong>（愛宕町1丁目・高架下、〜13時頃）で街路市の雰囲気と芋天が楽しめます。
+  </div>
+
+  <div class="area-guide">
+    <div class="ag-title">🚗 エリアと車での距離感（高知市から）</div>
+    <ul>
+      <li><b>高知市内</b>高知城・ひろめ市場・桂浜・牧野植物園（〜30分）</li>
+      <li><b>仁淀川</b>にこ淵（約1時間）</li>
+      <li><b>高原</b>四国カルスト（約2時間）</li>
+      <li><b>西部・幡多</b>四万十川沈下橋（約2時間）・柏島（約3時間）</li>
+      <li><b>東部・室戸</b>むろと廃校水族館（約2時間）</li>
+    </ul>
+    <div class="warn">⚠️ 西部（柏島）と東部（室戸）は反対方向で1日に両方は無理。遠出は1日1方面が現実的！</div>
+  </div>
+
+  <section id="spots">
+    <div class="sec-head"><span class="bar">🔴</span><h2>観光地</h2><span class="count" id="c-spots"></span></div>
+    <p class="sec-lede">写真をタップしなくても地図ボタンでGoogleマップが開くよ。</p>
+    <div id="spots-list"></div>
+  </section>
+
+  <section id="eats">
+    <div class="sec-head"><span class="bar">🟠</span><h2>食事処・ローカル店</h2><span class="count" id="c-eats"></span></div>
+    <p class="sec-lede">営業時間は2026年7月時点の調査。金土に行けるか確認済み。</p>
+    <div id="eats-list"></div>
+  </section>
+
+  <section id="gourmet">
+    <div class="sec-head"><span class="bar">🟢</span><h2>ご当地グルメ</h2><span class="count" id="c-gourmet"></span></div>
+    <p class="sec-lede legend">★＝マスト度 ／ <span class="badge b-shun">7月が旬</span> <span class="badge b-off">7月は旬じゃない</span> も表示してるよ。マスト度順に並べてます。</p>
+    <div class="grid" id="gourmet-list"></div>
+  </section>
+
+  <section id="omiyage">
+    <div class="sec-head"><span class="bar">🔵</span><h2>お土産</h2><span class="count" id="c-omiyage"></span></div>
+    <p class="sec-lede">要冷蔵のもの（大丸かまぼこ・リープル）は帰る直前に買うのがおすすめ。</p>
+    <div class="grid" id="omiyage-list"></div>
+  </section>
+
+  <footer>営業時間・定休日は変更される場合があります（2026年7月調査）。<br>Photos: Wikimedia Commons</footer>
+</main>
+
+<button class="floatbar" id="floatbar" hidden>❤️ <span id="pick-count">0</span>件えらんだ｜リストを見る</button>
+<div class="panel-bg" id="panel-bg"></div>
+<div class="panel" id="panel">
+  <button class="close" id="panel-close" aria-label="閉じる">✕</button>
+  <h2>❤️ ふたりの行きたいリスト</h2>
+  <p class="hint">「コピー」でLINEに貼れるテキストになるよ</p>
+  <div id="panel-body"></div>
+  <button class="copy" id="copy-btn">📋 リストをコピー</button>
+</div>
+
+<script>
+const SPOTS=[
+ {id:"s1",name:"にこ淵",catch:"神秘の仁淀ブルーの聖地",area:"仁淀川",drive:"車で約1時間",
+  desc:"「仁淀ブルー」の代名詞になった滝つぼ。光の加減で青→グリーンに刻々と変わる水の色は息をのむ美しさ。駐車場から急な階段を下りてたどり着く秘境感も魅力。",
+  hours:"見学自由（屋外）",fee:"無料",
+  tips:"いちばん青く見えるのは光が差す11時〜15時、特に正午前後。ナビは「グリーンパークほどの」に設定して5km手前の駐車場へ。林道が狭いので朝早め到着が安全。神聖な場所なので入水禁止。歩きやすい靴で。",
+  gmap:"高知県 いの町 にこ淵",official:"https://www.inofan.jp/spot/recommended/n497/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Nikobuti03.jpg/1280px-Nikobuti03.jpg"},
+ {id:"s2",name:"四国カルスト",catch:"標高1400mの天空ドライブ",area:"高原",drive:"車で約2時間",
+  desc:"日本三大カルストのひとつ。尾根沿いの「天空の道」から、白い石灰岩と放牧牛が点在する草原、稜線に並ぶ風車を一望。ドライブデートには最高のロケーション。",
+  hours:"見学自由（屋外）",fee:"無料",
+  tips:"道幅が狭い対面通行区間が多くすれ違い注意。往復で半日仕事なので時間に余裕を。霧が出ると視界ゼロになるので、晴れの日に狙うのが鉄則。",
+  gmap:"四国カルスト 天狗高原",official:"https://shikoku-tourism.com/feature/karusuto/top",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/b/bc/Shikokukarusuto01.jpg"},
+ {id:"s3",name:"柏島",catch:"船が宙に浮いて見える海",area:"西部・幡多",drive:"車で約3時間",
+  desc:"高知県最西端・大月町の小島（橋で車で渡れる）。日本屈指の透明度で「船が宙に浮いて見える」と話題。エメラルドの海を眺めるだけでも満足度が高い。",
+  hours:"見学自由（屋外）",fee:"無料",
+  tips:"高知市から片道3時間近くかかる県内最遠クラス。行くなら四万十川の沈下橋とセットで「西部集中デー」に。夏は海水浴客で混み、島内の駐車スペースは限られるので早め到着推奨。",
+  gmap:"高知県 大月町 柏島",official:"https://kochi-tabi.jp/search_spot.html?id=743",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Kashiwajima_%28Otsuki%29%2C_zenkei-1.jpg/1280px-Kashiwajima_%28Otsuki%29%2C_zenkei-1.jpg"},
+ {id:"s4",name:"佐田沈下橋（四万十川）",catch:"欄干のない橋と最後の清流",area:"西部・幡多",drive:"車で約2時間",
+  desc:"「日本最後の清流」四万十川の沈下橋で最下流・最長。増水時に川に沈むよう欄干がない独特の姿と青く穏やかな川面は四万十を象徴する風景。橋の上を歩くスリルも楽しい。",
+  hours:"見学自由（屋外）",fee:"無料（駐車場も無料）",
+  tips:"欄干がないので車も徒歩も転落注意（生活道路なので地元車優先）。柏島と同じ西部エリアなので同日に組むのが効率的。時間がなければ佐田1本で十分。",
+  gmap:"四万十市 佐田沈下橋",official:"https://www.shimanto-kankou.com/kanko/shimanto-river/shimantoriver.html",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Shimanto_sada_chinkabashi.jpg/1280px-Shimanto_sada_chinkabashi.jpg"},
+ {id:"s5",name:"桂浜",catch:"龍馬像が太平洋を見つめる浜",area:"高知市内",drive:"車で約30分",
+  desc:"坂本龍馬像が太平洋を見つめる高知随一の景勝地。弓状の砂浜と松の緑、紺碧の海のコントラストが美しい。リニューアルで飲食・土産の桂浜商店街も充実。",
+  hours:"見学自由（駐車場6:00〜22:30）",fee:"無料（駐車場400円）",
+  tips:"波が高く遊泳禁止。波打ち際は高波に注意。夕方より日中の青い海が映える。隣の坂本龍馬記念館とセットで1.5〜2時間コース。パラソルのアイスクリン露店はここが本場。",
+  gmap:"高知県 桂浜公園",official:"https://katsurahama-park.com/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Statue_of_Sakamoto_Ryoma_in_Katsurahama_01.jpg/1280px-Statue_of_Sakamoto_Ryoma_in_Katsurahama_01.jpg"},
+ {id:"s6",name:"ひろめ市場",catch:"昼から乾杯できる土佐の台所",area:"高知市内",drive:"中心部・高知城のすぐ隣",
+  desc:"約60店が集まる屋台村風フードコートで「昼飲みの聖地」。藁焼きカツオの塩たたきを肴に昼からお酒OK。相席文化で地元の人との交流も生まれる、旅の初日に最適な場所。",
+  hours:"金10:00〜23:00／土10:00〜23:00（7月の休館なし）",fee:"無料（飲食代のみ）",
+  tips:"金曜夜と土曜昼は大混雑。先に席を確保してから各店へ買い出しに行くのが鉄則。土佐巻・芋天・ウツボ唐揚げ・チャンバラ貝など、このページのグルメの大半がここで揃う。",
+  gmap:"高知市 ひろめ市場",official:"https://hirome.co.jp/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Hirome_Market_Entrance.jpg/1280px-Hirome_Market_Entrance.jpg"},
+ {id:"s7",name:"高知城",catch:"天守と本丸御殿が残る唯一の城",area:"高知市内",drive:"中心部・徒歩圏",
+  desc:"天守と本丸御殿がともに現存する日本で唯一の城（現存12天守のひとつ）。天守最上階から高知市街を一望。夜はライトアップも。",
+  hours:"9:00〜17:00（入館〜16:30）金土とも開館",fee:"天守420円",
+  tips:"天守内は急な階段が続くので歩きやすい靴で。追手門越しに天守を収めるのが定番の記念写真構図。所要約1時間。隣のひろめ市場と「登城→昼飲み」が黄金コース。",
+  gmap:"高知城",official:"https://kochipark.jp/kochijyo/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Kochi_Castle%2C_Outemon-3.jpg/1280px-Kochi_Castle%2C_Outemon-3.jpg"},
+ {id:"s8",name:"牧野植物園",catch:"牧野博士の花あふれる楽園",area:"高知市内",drive:"車で約20分（五台山）",
+  desc:"朝ドラ「らんまん」のモデル・牧野富太郎博士ゆかりの植物園。五台山の起伏を活かした園内に3000種以上。建築美の展示館やカフェもあり、雨の日の選択肢にも。",
+  hours:"9:00〜17:00（入園〜16:30）金土とも開園",fee:"一般850円",
+  tips:"園内は広く坂も多いので歩きやすい靴で（所要1.5〜2時間）。夏は午前中が快適。近くの五台山展望テラスから市街と浦戸湾のパノラマも。桂浜と同方面なので同じ半日に組める。",
+  gmap:"高知県立牧野植物園",official:"https://www.makino.or.jp/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/200104_Kochi_Prefectural_Makino_Botanical_Garden01s5.jpg/1280px-200104_Kochi_Prefectural_Makino_Botanical_Garden01s5.jpg"},
+ {id:"s9",name:"むろと廃校水族館",catch:"小学校がまるごと水族館に",area:"東部・室戸",drive:"車で約2時間",
+  desc:"廃校の旧椎名小学校を改修したユニークな水族館。25mプールでウミガメやサメが泳ぎ、教室の水槽や跳び箱の展示台など「学校×水族館」が写真映え抜群。",
+  hours:"9:00〜18:00・年中無休（金土OK）",fee:"大人600円",
+  tips:"高知市から東へ片道約2時間。西部（柏島・四万十）とは両立不可なので、行くなら室戸岬とセットで「東部デー」に。館内はコンパクトで所要1時間ほど。海岸線ドライブ込みで楽しむプランが◎。",
+  gmap:"むろと廃校水族館",official:"https://www.city.muroto.kochi.jp/pages/page0343.php",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Muroto_Schoolhouse_Aquarium.jpg/1280px-Muroto_Schoolhouse_Aquarium.jpg"},
+ {id:"s10",name:"金曜市（日曜市の代替）",catch:"300年続く街路市文化を金曜に",area:"高知市内",drive:"愛宕町1丁目・高架下",
+  desc:"本命の日曜市（追手筋・約300年の歴史で全国最大級）は日曜のみで今回は開催なし。金曜は愛宕町の高架下で「金曜市」が開催され、地元客中心の市で野菜や惣菜、土佐の日常を味わえる。",
+  hours:"7/10(金)朝〜13時頃（早いほど品揃え◎）",fee:"無料",
+  tips:"日曜市ほどの規模ではないけど、そのぶんローカル感は濃いめ。芋天や田舎寿司を見つけたら即買いが吉。",
+  gmap:"高知市 金曜市 愛宕町",official:"https://www.city.kochi.kochi.jp/site/gairoichi/guide.html",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Nichiyoichi.jpg/1280px-Nichiyoichi.jpg",photoNote:"写真は日曜市"}
+];
+
+const EATS=[
+ {id:"e1",g:"わざわざ行きたい名物店",emoji:"🍜",name:"橋本食堂",catch:"須崎名物・鍋焼きラーメンの頂点",
+  desc:"鶏ガラ醤油スープを土鍋でグツグツ煮込む鍋焼きラーメンの超人気専門店。親鳥・ちくわ・生卵入りで並600円前後。ご飯を追加して雑炊風に締めるのが定番。",
+  hours:"11:00〜15:00（昼のみ）／日月火休 → 金土OK",area:"須崎市（高知市から車で約40分）",
+  tips:"土曜昼は行列必至、開店直後11時が狙い目。スープ切れで早じまいの日あり。",
+  gmap:"橋本食堂 須崎市 鍋焼きラーメン",link:"https://tabelog.com/kochi/A3903/A390301/39000046/"},
+ {id:"e2",g:"わざわざ行きたい名物店",emoji:"🥟",name:"屋台安兵衛",catch:"深夜に並ぶ伝説の屋台餃子",
+  desc:"昭和45年創業、高知の夜文化を代表する屋台。パリパリ薄皮の一口餃子は7個500円。餃子百名店選出。飲んだ後の〆の一皿が高知流。",
+  hours:"金19:00〜翌3:00／土19:00〜翌4:00（日休）",area:"高知市 廿代町（高知駅徒歩約10分）",
+  tips:"予約不可で行列が常態。ピークは22時〜深夜1時。昼〜夜早めなら姉妹店「ひろめで安兵衛」でも食べられる。",
+  gmap:"屋台安兵衛 高知市廿代町",link:"https://tabelog.com/kochi/A3901/A390101/39000019/"},
+ {id:"e3",g:"わざわざ行きたい名物店",emoji:"🍱",name:"くいしんぼ如月",catch:"県民のソウルフード弁当チェーン",
+  desc:"高知県内のみ展開のローカル弁当チェーン。名物「チキンナンバン」はタルタルではなく特製ソースのから揚げ弁当で500〜730円。注文後に作る出来立て提供。",
+  hours:"概ね7:00〜24:00・年中無休（店舗により異なる）",area:"県内多店舗（ひろめ市場近くは追手筋グリーンロード店）",
+  tips:"注文後調理で数分待つ。ドライブ日の朝に買って車で食べるのも◎。",
+  gmap:"くいしんぼ如月 グリーンロード店 高知市追手筋",link:"https://www.nanban-tabetai.com/"},
+ {id:"e4",g:"喫茶モーニング（高知は朝からしっかり派）",emoji:"🍞",name:"喫茶デポー 京町店",catch:"味噌汁つき高知モーニングの代表",
+  desc:"はりまや橋徒歩1分、創業45年超の老舗。名物「高知のモーニング」はトースト・おにぎり・味噌汁・オムレツ・ゆで卵・サラダ・フルーツが一皿に載って1,000円前後。",
+  hours:"8:00〜21:00・無休（モーニング8:00〜11:00）",area:"高知市 はりまや町",
+  tips:"朝は観光客と常連で混雑あり。モーニング目的なら11時までに。",
+  gmap:"喫茶デポー 京町店 高知市はりまや町",link:"https://s578108.gorp.jp/"},
+ {id:"e5",g:"喫茶モーニング（高知は朝からしっかり派）",emoji:"☕",name:"メフィストフェレス",catch:"1964年創業のレトロ本格喫茶",
+  desc:"帯屋町アーケードの老舗。ドリンク代+100円でバタートースト・サラダ・ゆで卵が付く昔ながらのお得モーニング。自家焙煎珈琲と重厚なレトロ空間。",
+  hours:"土日祝8:00〜／平日9:00〜21:00・無休（モーニング〜14:00）",area:"高知市 帯屋町（ひろめ市場徒歩すぐ）",
+  tips:"土曜は8時開店で朝から動ける。休日午前は満席になることも。",
+  gmap:"メフィストフェレス 高知市帯屋町 喫茶店",link:"https://tabelog.com/kochi/A3901/A390101/39000603/"},
+ {id:"e6",g:"喫茶モーニング（高知は朝からしっかり派）",emoji:"🍝",name:"パスタカフェ 八乃森",catch:"選べる15種の満腹モーニング",
+  desc:"モーニングが全15種。人気のトースト&目玉焼きセットはパスタ・唐揚げ・サラダ・スープ・ゼリーまで付く高知らしいボリュームで600〜900円台。",
+  hours:"8:00〜21:00・無休（モーニング8:00〜11:00）",area:"高知市 宝永町（駐車場あり）",
+  tips:"平日でも満席になる人気店。休日朝は開店直後が確実。",
+  gmap:"パスタカフェ八乃森 高知市宝永町",link:"https://tabelog.com/kochi/A3901/A390101/39000125/"},
+ {id:"e7",g:"カツオと昼飲み・居酒屋",emoji:"🔥",name:"明神丸 ひろめ市場店",catch:"塩たたき発祥、藁焼きライブ",
+  desc:"カツオ一本釣り船団直営で「塩たたき」発祥の店。藁の炎が上がる焼きの実演が名物。たたき単品1,000〜1,500円前後と手頃。",
+  hours:"金土11:00〜21:00（市場内店舗のため変動あり）",area:"ひろめ市場内",
+  tips:"予約不可・席取り合戦。週末は11時台入場が無難。",
+  gmap:"明神丸 ひろめ市場店",link:"https://tabelog.com/kochi/A3901/A390101/39000071/"},
+ {id:"e8",g:"カツオと昼飲み・居酒屋",emoji:"🐟",name:"やいろ亭",catch:"ひろめ市場屈指の塩たたき",
+  desc:"ひろめ市場内で明神丸と人気を二分するカツオの名店。厚切りの藁焼き塩たたきが看板。「初めてのたたきならここ」と推す地元記事も多い。",
+  hours:"金土11:30〜22:00（市場内店舗のため変動あり）",area:"ひろめ市場内",
+  tips:"明神丸と両方買って食べ比べるのが定番の楽しみ方。",
+  gmap:"やいろ亭 ひろめ市場",link:"https://tabelog.com/kochi/A3901/A390101/39000089/"},
+ {id:"e9",g:"カツオと昼飲み・居酒屋",emoji:"🏮",name:"居酒屋 葉牡丹",catch:"昼酒呑兵衛の聖地・老舗大衆酒場",
+  desc:"昭和25年創業の老舗大衆酒場。昼11時から通しで飲めるのが名物で、カツオのたたき・ウツボ唐揚げ・おでん（すまき入り）など土佐名物が一品400〜900円台。",
+  hours:"11:00〜23:00／水休 → 金土OK",area:"高知市 堀詰（中央公園前）",
+  tips:"2名の予約は月〜木のみ（金土は4名〜）。2人なら早め入店推奨。",
+  gmap:"居酒屋 葉牡丹 高知市 堀詰",link:"https://tabelog.com/kochi/A3901/A390101/39000468/"},
+ {id:"e10",g:"カツオと昼飲み・居酒屋",emoji:"🍶",name:"居酒屋 大黒堂",catch:"地元民が推す塩たたきの名店",
+  desc:"はりまや橋近くの海鮮居酒屋。藁焼きカツオの塩たたき（約1,500円）は粗塩との相性が絶妙と評判で地元民の推薦率が高い。土佐の食材と地酒が揃う。",
+  hours:"17:00〜24:00（土は〜翌1:00）／日休 → 金土OK",area:"高知市 はりまや町",
+  tips:"金土の夜は予約推奨（電話・ネット予約可）。",
+  gmap:"居酒屋 大黒堂 高知市はりまや町",link:"https://katsuotataki.net/"}
+];
+
+const GOURMET=[
+ {id:"g1",emoji:"🔥",name:"鰹塩たたき",catch:"藁焼き×天日塩、高知の代名詞",must:3,season:"ok",snote:"通年（7月は夏鰹）",where:"ひろめ市場・土佐料理店全般",desc:"藁の炎で豪快に炙ったカツオを、タレでなく天日塩とニンニク・薬味で。焼きたての温かい皮目と藁の香りが別格。発祥はひろめ市場の明神丸。"},
+ {id:"g2",emoji:"🍠",name:"芋天",catch:"外サク中ホクのソウルフード",must:3,season:"ok",snote:"通年",where:"金曜市・ひろめ市場「日曜市のいも天」",desc:"さつまいもをほんのり甘い秘伝の衣で揚げた高知のソウルフード。揚げたての食べ歩きが定番。日曜市の大平商店は1日約2万個売る名物店。"},
+ {id:"g3",emoji:"⚔️",name:"チャンバラ貝",catch:"刀を振る姿が名の由来の巻貝",must:3,season:"ok",snote:"通年（旬は春〜夏）",where:"ひろめ市場・居酒屋（ほぼ必ずある）",desc:"正式名マガキガイ。殻から鎌状の爪を出して振り回す姿が名の由来。塩茹でを爪楊枝でくるっと取り出して食べる。甘みがあって高知の定番肴。"},
+ {id:"g4",emoji:"🐍",name:"ウツボ料理",catch:"海のギャングをたたきと唐揚げで",must:3,season:"ok",snote:"通年提供",where:"ひろめ市場・居酒屋・土佐料理店",desc:"見た目は獰猛でも身は上質な鶏肉のような白身で、皮下はコラーゲン豊富。外サク中ふわの唐揚げは初心者にも食べやすい。"},
+ {id:"g5",emoji:"🍶",name:"日本酒（土佐の辛口）",catch:"酔鯨・久礼・南・亀泉",must:3,season:"ok",snote:"通年",where:"ひろめ市場・居酒屋・酒販店",desc:"宴会文化の高知は淡麗辛口の酒王国。酔鯨・久礼・南・亀泉が代表格。魚料理を引き立てるキレの良さ。亀泉はフルーティー系も人気。"},
+ {id:"g6",emoji:"🎣",name:"鮎（塩焼き）",catch:"7月まさに旬の清流の香魚",must:3,season:"shun",snote:"7月ベストシーズン",where:"ひろめ市場・仁淀川/四万十川沿いの食事処",desc:"仁淀川・四万十川の天然鮎は藻を食むため香りが豊かで「香魚」と呼ばれる。塩焼きが王道。漁は6月解禁で7月は身も香りも乗った真っ盛り。"},
+ {id:"g7",emoji:"🍣",name:"土佐巻",catch:"カツオたたきの豪快太巻き",must:2,season:"ok",snote:"通年",where:"ひろめ市場・寿司店・居酒屋",desc:"カツオのたたきを芯に生ニンニクと大葉を巻いた高知発祥の太巻き。ニンニクの刺激とカツオの旨味が抜群で、酒の締めにも人気。"},
+ {id:"g8",emoji:"✋",name:"かめのて",catch:"エビ+カニの旨味を持つ磯の珍味",must:2,season:"shun",snote:"6〜7月が特に美味",where:"ひろめ市場・居酒屋",desc:"亀の手そっくりの甲殻類。塩茹でや味噌汁にすると濃厚な出汁と身の旨味。スペインでは高級食材。産卵前の今がまさに旬。"},
+ {id:"g9",emoji:"🥣",name:"ところてん（出汁）",catch:"冷たい鰹だしで食べる高知流",must:2,season:"shun",snote:"夏が本番",where:"スーパー・ひろめ市場",desc:"酢醤油でも黒蜜でもなく、冷やした鰹だしに生姜とゴマで食べるのが高知流。旨味と酸味のバランスで夏に最高。県内スーパーでも出汁付きで売られる。"},
+ {id:"g10",emoji:"🍦",name:"1×1=1 アイスクリン",catch:"パラソル売りの昔懐かし氷菓",must:2,season:"shun",snote:"7月は露店最盛期",where:"桂浜・高知城周辺のパラソル露店",desc:"卵・砂糖・脱脂粉乳で作る乳脂肪3%以下の氷菓。シャリッと軽くバナナ風味の素朴な味。夏の高知では沿道にパラソル露店が並ぶ風物詩。"},
+ {id:"g11",emoji:"🐠",name:"どろめ（生しらす)",catch:"生しらすをゆず酢味噌ぬたで",must:2,season:"ok",snote:"旬は春。入荷あれば7月も",where:"ひろめ市場・居酒屋",desc:"イワシの稚魚を生のまま、ヌタ（ゆず酢味噌）や生姜醤油で。ぷりぷりの食感とほろ苦さが日本酒に合う土佐の酒肴。"},
+ {id:"g12",emoji:"🐚",name:"長太郎貝",catch:"カラフルな殻のホタテ似の貝",must:2,season:"ok",snote:"通年（旬は春〜夏）",where:"ひろめ市場・居酒屋・海鮮BBQ店",desc:"正式名ヒオウギガイ。赤・橙・紫などカラフルな殻が特徴で、ホタテより小ぶりながら旨味が濃い。バター焼きや網焼きが定番。"},
+ {id:"g13",emoji:"🥒",name:"ちくきゅう",catch:"ちくわに丸ごときゅうり",must:2,season:"ok",snote:"通年",where:"ひろめ市場・居酒屋・スーパー",desc:"ちくわの穴にきゅうりを豪快に一本通した高知の定番おつまみ。パリッとしたきゅうりと練り物の旨味でビールと相性抜群。"},
+ {id:"g14",emoji:"🍖",name:"カツオのはらんぼ",catch:"カツオ腹身の塩焼き、トロ級の脂",must:2,season:"ok",snote:"通年",where:"ひろめ市場・居酒屋",desc:"カツオの腹側の身（ハラモ）の塩焼きや唐揚げ。マグロのトロにあたる部位で脂がじゅわっと乗って香ばしい。一本から少量しか取れない酒好きの定番。"},
+ {id:"g15",emoji:"🫙",name:"酒盗",catch:"カツオ内臓の塩辛、酒が進む",must:2,season:"ok",snote:"通年",where:"居酒屋・土産物店・スーパー",desc:"カツオの内臓を塩漬け熟成させた土佐生まれの塩辛。「酒を盗んででも飲みたくなる」が名の由来とも。辛口の土佐酒と最高の組み合わせ。"},
+ {id:"g16",emoji:"🐓",name:"土佐ジロー（地鶏・卵）",catch:"放し飼い地鶏、濃厚な小さな卵",must:2,season:"ok",snote:"通年",where:"ひろめ市場・炭火焼き専門店・スーパー（卵）",desc:"天然記念物・土佐地鶏の血を引く高知県限定飼育の地鶏。赤身の強い肉は噛むほど旨い。小ぶりな卵は黄身が大きく濃厚で卵かけご飯にも。"},
+ {id:"g17",emoji:"🌿",name:"四万十海苔（青のり）",catch:"香り高い川青のり、天ぷらで",must:2,season:"ok",snote:"乾燥品で通年",where:"ひろめ市場（天ぷら）・土産物店",desc:"四万十川の汽水域で育つ希少なスジアオノリ。磯の香りが際立つ天ぷらが一番人気。佃煮や青のり塩でも。"},
+ {id:"g18",emoji:"🎋",name:"いたどり",catch:"シャキシャキ山菜の油炒め",must:2,season:"ok",snote:"塩蔵で通年提供",where:"ひろめ市場・居酒屋の小鉢・スーパー惣菜",desc:"春の山菜を塩漬け保存し、油で炒めて味付けする高知の家庭の味。酸味とシャキシャキ食感が独特で、県外ではまず食べられない一品。"},
+ {id:"g19",emoji:"🍚",name:"かつおめし",catch:"カツオの炊き込み漁師飯",must:1,season:"ok",snote:"通年",where:"土佐料理店・久礼大正町市場周辺",desc:"醤油と生姜で煮たカツオをご飯に炊き込む漁師町の伝統料理。たたきを食べた後の締めにちょうどいい素朴な味。"},
+ {id:"g20",emoji:"🍥",name:"すまき",catch:"じゃこ香る高知の蒸しかまぼこ",must:1,season:"ok",snote:"通年",where:"スーパー・おでん（葉牡丹など）",desc:"すり身を簀で巻いて蒸した高知独特のかまぼこ。ピンクの渦巻き模様が可愛い。高知のおでんの定番具材。"},
+ {id:"g21",emoji:"🍢",name:"じゃこてん",catch:"小魚まるごとの揚げ天",must:1,season:"ok",snote:"通年",where:"ひろめ市場・スーパー",desc:"小魚を骨ごとすり身にして揚げた練り物。ザラッとした食感と素朴な旨味。炙って生姜醤油で食べると酒が進む。"},
+ {id:"g22",emoji:"❤️",name:"カツオのちちこ",catch:"カツオの心臓、コリコリ珍味",must:1,season:"ok",snote:"通年",where:"居酒屋・土佐料理店",desc:"カツオの心臓を生姜と甘辛く煮た珍味。コリコリした弾力と凝縮した旨味で、レバーより臭みが少なく食べやすい。"},
+ {id:"g23",emoji:"🌾",name:"仁井田米",catch:"四万十の香り米ブレンド銘柄米",must:1,season:"ok",snote:"通年",where:"四万十町の食堂・道の駅・スーパー",desc:"四万十町産のブランド米。独特の芳香を持つ「香り米」をブレンドする文化が特徴。おかず不要と言われる旨さ。※「新田米」ではなく仁井田米が正式名。"},
+ {id:"g24",emoji:"💧",name:"のれそれ",catch:"アナゴ稚魚の透明珍味",must:1,season:"off",snote:"旬は2〜5月。7月は生ほぼ無し",where:"ひろめ市場（珍味堂など）",desc:"アナゴの透明な稚魚を生のままポン酢や三杯酢で。つるりとした喉ごしが身上の土佐の春の珍味。7月に生は期待薄。"},
+ {id:"g25",emoji:"🐟",name:"めじか（新子）",catch:"8〜9月だけの幻・宗田鰹",must:1,season:"off",snote:"旬は8月中旬〜。7/10は未解禁",where:"久礼大正町市場（中土佐町）",desc:"ソウダガツオの当歳魚の刺身。獲れて半日しか生で食べられない幻のグルメで、ぶしゅかんを搾って食べるのが流儀。残念ながら今回は時期が合わない。"},
+ {id:"g26",emoji:"🐡",name:"ブリ（ぬた）",catch:"冬の魚。葉にんにくの酢味噌で",must:1,season:"off",snote:"旬は冬〜春",where:"居酒屋・土佐料理店",desc:"高知ではブリの刺身を葉ニンニクの緑の酢味噌「ぬた」で食べるのが伝統。旬は冬なので、7月は本領を発揮しない。"},
+ {id:"g27",emoji:"🍊",name:"文旦",catch:"冬春の名物柑橘",must:1,season:"off",snote:"生果は2〜4月。加工品のみ",where:"土産物店（ジュース・菓子）",desc:"高知を代表する大玉柑橘。プリッとした果肉の上品な甘さとほろ苦さ。7月に生果はほぼ無いけど、ジュースやゼリーなら楽しめる。"}
+];
+
+const OMIYAGE=[
+ {id:"m1",emoji:"🍊",name:"馬路村のゆず製品",catch:"ぽん酢「ゆずの村」＆ごっくん馬路村",price:"ごっくん約150円／ぽん酢700円前後",where:"ひろめ市場・とさのさと・駅・空港ほぼどこでも",desc:"馬路村農協のゆず加工品。1986年からのロングセラーぽん酢と、ゆず・水・はちみつだけの無添加ドリンク「ごっくん」が二大定番。ばらまき土産にも。"},
+ {id:"m2",emoji:"🍠",name:"水車亭の塩けんぴ",catch:"甘じょっぱさが後を引く",price:"500g 500円台〜",where:"高知空港・市内スーパー・土産店",desc:"「水車屋」ではなく正式名は水車亭（みずぐるまや）＝南国製菓の直営ブランド。海洋深層水の塩と糖蜜を絡めた塩けんぴが看板で、甘さと塩気のバランスが絶妙。"},
+ {id:"m3",emoji:"🍡",name:"芋屋金次郎の芋けんぴ",catch:"揚げたてが買える高級けんぴ",price:"袋400〜600円／缶1,000円台〜",where:"卸団地店（高知市・カフェ併設）・空港",desc:"日高村発祥の芋菓子専門店。直営店では製造12時間以内の揚げたてを販売。細切りで軽い食感、ギフト缶はおしゃれで贈答にも。塩けんぴと食べ比べも楽しい。"},
+ {id:"m4",emoji:"🥛",name:"リープル",catch:"高知県民のソウルドリンク",price:"200ml 約105円",where:"市内スーパー・コンビニ（要冷蔵）",desc:"ひまわり乳業の乳酸菌飲料。さわやかな飲み口で高知県民なら誰もが知る超ロングセラー。ほぼ高知でしか買えないご当地感が魅力。旅行中の飲み物にも。"},
+ {id:"m5",emoji:"👒",name:"ぼうしパン",catch:"帽子の形のご当地パン",price:"1個170〜250円",where:"リンベル（永国寺町）・市内スーパー",desc:"丸パンにカステラ生地をかけて焼いた帽子型のパン。元祖は永野旭堂本店（1927年創業）。中心ふわふわ、カステラのつばはサクッと香ばしい。"},
+ {id:"m6",emoji:"😊",name:"ニコニコパン（リンベル）",catch:"黒糖生地×クリームの懐かし系",price:"1個150〜250円",where:"リンベル（高知市永国寺町・喫茶併設）",desc:"永野旭堂本店の直営店リンベルの名物。黒糖入りの小さなバゲット生地にクリームを挟んだパンで、ぼうしパンと並ぶ県民の思い出の味。60年以上変わらぬ製法。"},
+ {id:"m7",emoji:"🍥",name:"大丸（玉子入りかまぼこ）",catch:"ゆで卵入りの土佐の祝いかまぼこ",price:"1本600〜1,000円",where:"市内スーパー・とさのさと（要冷蔵）",desc:"すり身でゆで卵を丸ごと包んだ高知独特のかまぼこ。切ると断面に黄身が現れる。「大丸」は品名で、依光・河村・山本など複数の老舗が製造。帰る直前に購入を。"},
+ {id:"m8",emoji:"🍋",name:"ぶしゅかん加工品",catch:"四万十だけの酢みかんの王様",price:"ぽん酢・かけだれ400〜900円",where:"とさのさと・スーパー地場コーナー・空港",desc:"四万十川河口域でしか育たない香酸柑橘。上品な香りとキレのある酸味。生果の旬は夏の終わり〜秋で、ぽん酢やジュースなどの加工品が買いやすい。"}
+];
+
+/* ===== render ===== */
+const $=s=>document.querySelector(s);
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const mapUrl=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
+const seasonBadge=g=>g.season==="shun"?`<span class="badge b-shun">🌟 ${g.snote}</span>`:g.season==="off"?`<span class="badge b-off">⚠️ ${g.snote}</span>`:`<span class="badge b-must" style="background:#F0F4F3;color:#4F6468">${g.snote}</span>`;
+const stars=n=>"★".repeat(n)+"☆".repeat(3-n);
+
+$("#spots-list").innerHTML=SPOTS.map(s=>`
+ <article class="card" id="${s.id}" data-name="${esc(s.name)}" data-cat="観光">
+  <div class="ph">
+   <img src="${s.photo}" alt="${esc(s.name)}" loading="lazy">
+   <div class="chip-row"><span class="chip">📍 ${esc(s.area)}</span><span class="chip">🚗 ${esc(s.drive)}</span>${s.photoNote?`<span class="chip">${esc(s.photoNote)}</span>`:""}</div>
+   <button class="heart" data-pick="${s.id}" aria-label="行きたいに追加"></button>
+  </div>
+  <div class="body">
+   <div class="eyebrow">${esc(s.catch)}</div>
+   <h3>${esc(s.name)}</h3>
+   <p class="desc">${esc(s.desc)}</p>
+   <div class="meta">
+    <div><span class="i">🕐</span><span>${esc(s.hours)}</span></div>
+    <div><span class="i">💴</span><span>${esc(s.fee)}</span></div>
+   </div>
+   <details class="tips"><summary>行く前に知っておくこと</summary><p>${esc(s.tips)}</p></details>
+   <div class="links">
+    <a class="map" href="${mapUrl(s.gmap)}" target="_blank" rel="noopener">📍 地図を開く</a>
+    <a class="site" href="${s.official}" target="_blank" rel="noopener">🔗 くわしく</a>
+   </div>
+  </div>
+ </article>`).join("");
+
+let lastG="";
+$("#eats-list").innerHTML=EATS.map(e=>{
+ const head=e.g!==lastG?`<div class="subgroup">${esc(e.g)}</div>`:"";lastG=e.g;
+ return head+`
+ <article class="eat-card" id="${e.id}" data-name="${esc(e.name)}" data-cat="食事">
+  <button class="heart" data-pick="${e.id}" style="position:absolute;top:12px;right:12px" aria-label="行きたいに追加"></button>
+  <div class="top">
+   <div class="avatar">${e.emoji}</div>
+   <div><div class="catch">${esc(e.catch)}</div><h3>${esc(e.name)}</h3></div>
+  </div>
+  <p class="desc">${esc(e.desc)}</p>
+  <div class="meta">
+   <div><span class="i">📍</span><span>${esc(e.area)}</span></div>
+   <div><span class="i">🕐</span><span>${esc(e.hours)}</span></div>
+   <div><span class="i">💡</span><span>${esc(e.tips)}</span></div>
+  </div>
+  <div class="links">
+   <a class="map" href="${mapUrl(e.gmap)}" target="_blank" rel="noopener">📍 地図</a>
+   <a class="site" href="${e.link}" target="_blank" rel="noopener">🔗 くわしく</a>
+  </div>
+ </article>`}).join("");
+
+const gSorted=[...GOURMET].sort((a,b)=>b.must-a.must);
+$("#gourmet-list").innerHTML=gSorted.map(g=>`
+ <div class="mini-card" id="${g.id}" data-name="${esc(g.name)}" data-cat="グルメ">
+  <button class="heart" data-pick="${g.id}" style="position:absolute;top:8px;right:8px" aria-label="行きたいに追加"></button>
+  <div class="emoji">${g.emoji}</div>
+  <h3>${esc(g.name)}</h3>
+  <div class="catch">${esc(g.catch)}</div>
+  <div class="badges"><span class="badge b-must">${stars(g.must)}</span>${seasonBadge(g)}</div>
+  <div class="where">${esc(g.where)}</div>
+  <details><summary>くわしく</summary><p>${esc(g.desc)}</p></details>
+ </div>`).join("");
+
+$("#omiyage-list").innerHTML=OMIYAGE.map(m=>`
+ <div class="mini-card" id="${m.id}" data-name="${esc(m.name)}" data-cat="お土産">
+  <button class="heart" data-pick="${m.id}" style="position:absolute;top:8px;right:8px" aria-label="行きたいに追加"></button>
+  <div class="emoji">${m.emoji}</div>
+  <h3>${esc(m.name)}</h3>
+  <div class="catch">${esc(m.catch)}</div>
+  <div class="badges"><span class="badge b-price">${esc(m.price)}</span></div>
+  <div class="where">${esc(m.where)}</div>
+  <details><summary>くわしく</summary><p>${esc(m.desc)}</p></details>
+ </div>`).join("");
+
+$("#c-spots").textContent=SPOTS.length+"ヶ所";
+$("#c-eats").textContent=EATS.length+"軒";
+$("#c-gourmet").textContent=GOURMET.length+"品";
+$("#c-omiyage").textContent=OMIYAGE.length+"品";
+
+/* ===== picks ===== */
+const KEY="kochi-picks";
+let picks=new Set(JSON.parse(localStorage.getItem(KEY)||"[]"));
+function savePicks(){localStorage.setItem(KEY,JSON.stringify([...picks]))}
+function applyPicks(){
+ document.querySelectorAll("[data-pick]").forEach(b=>{
+  b.closest("[data-name]").classList.toggle("picked",picks.has(b.dataset.pick));
+ });
+ const n=picks.size;
+ $("#floatbar").hidden=n===0;
+ $("#pick-count").textContent=n;
+}
+document.addEventListener("click",e=>{
+ const b=e.target.closest("[data-pick]");
+ if(!b)return;
+ const id=b.dataset.pick;
+ picks.has(id)?picks.delete(id):picks.add(id);
+ savePicks();applyPicks();
+});
+applyPicks();
+
+/* ===== panel ===== */
+const CATS=["観光","食事","グルメ","お土産"];
+function pickItems(){
+ return [...picks].map(id=>{const el=document.getElementById(id);return el?{id,name:el.dataset.name,cat:el.dataset.cat}:null}).filter(Boolean);
+}
+function renderPanel(){
+ const items=pickItems();
+ if(!items.length){$("#panel-body").innerHTML='<p class="empty">まだ何も選んでないよ。🤍をタップしてね</p>';return}
+ $("#panel-body").innerHTML=CATS.map(c=>{
+  const list=items.filter(i=>i.cat===c);
+  if(!list.length)return"";
+  return `<div class="pcat">${c}</div><ul>`+list.map(i=>`<li><span>${i.name}</span><button data-rm="${i.id}">はずす</button></li>`).join("")+"</ul>";
+ }).join("");
+}
+function openPanel(){renderPanel();$("#panel").classList.add("open");$("#panel-bg").classList.add("open")}
+function closePanel(){$("#panel").classList.remove("open");$("#panel-bg").classList.remove("open")}
+$("#floatbar").addEventListener("click",openPanel);
+$("#panel-close").addEventListener("click",closePanel);
+$("#panel-bg").addEventListener("click",closePanel);
+$("#panel").addEventListener("click",e=>{
+ const b=e.target.closest("[data-rm]");
+ if(!b)return;
+ picks.delete(b.dataset.rm);savePicks();applyPicks();renderPanel();
+});
+$("#copy-btn").addEventListener("click",async()=>{
+ const items=pickItems();
+ let text="🌊 高知たび 行きたいリスト（7/10-11）\n";
+ CATS.forEach(c=>{
+  const list=items.filter(i=>i.cat===c);
+  if(list.length)text+=`\n【${c}】\n`+list.map(i=>"・"+i.name).join("\n")+"\n";
+ });
+ try{await navigator.clipboard.writeText(text);$("#copy-btn").textContent="✅ コピーしたよ！";}
+ catch(_){prompt("コピーしてね",text)}
+ setTimeout(()=>$("#copy-btn").textContent="📋 リストをコピー",2000);
+});
+</script>
+</body>
+</html>
