@@ -105,11 +105,24 @@ section{padding-top:34px}
 .picked .heart::after{content:"❤️"}
 .mini-card .heart,.eat-card .heart{width:32px;height:32px;font-size:15px;box-shadow:none;background:#F2F7F6}
 
+/* ===== minimap ===== */
+.minimap{position:absolute;top:10px;right:56px;width:58px;height:auto;background:rgba(255,255,255,.92);border-radius:10px;padding:4px 5px;box-shadow:0 1px 6px rgba(0,0,0,.18);display:block}
+.minimap .pref{fill:#DFEEEF;stroke:#5E9AA0;stroke-width:5}
+.minimap .dot{fill:var(--red);stroke:#fff;stroke-width:6}
+.eat-card .minimap{top:12px;right:50px;background:#F2F7F6;box-shadow:none;width:52px}
+.eat-card .minimap .dot{fill:var(--orange)}
+
 /* ===== eat cards ===== */
 .subgroup{font-size:13px;font-weight:900;color:#A85A11;margin:20px 0 10px;letter-spacing:.06em}
 .subgroup::before{content:"― "}
 .eat-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 16px;margin-bottom:12px;position:relative}
-.eat-card .top{display:flex;gap:12px;align-items:flex-start}
+.eat-card .eph{position:relative;aspect-ratio:16/8;border-radius:12px;overflow:hidden;background:#EFE5D8;margin-bottom:12px}
+.eat-card .eph img{width:100%;height:100%;object-fit:cover}
+.eat-card .eph .chip{position:absolute;left:8px;bottom:8px}
+.eat-card.has-ph .heart{top:22px!important;right:24px!important;background:rgba(255,255,255,.92);box-shadow:0 1px 6px rgba(0,0,0,.18)}
+.eat-card.has-ph .minimap{top:22px;right:66px;background:rgba(255,255,255,.92);box-shadow:0 1px 6px rgba(0,0,0,.18)}
+.links .tbl{background:#FBEBE9;color:#B7382F}
+.eat-card .top{display:flex;gap:12px;align-items:flex-start;padding-right:96px}
 .eat-card .avatar{flex:none;width:46px;height:46px;border-radius:14px;background:var(--orange-pale);display:grid;place-items:center;font-size:24px}
 .eat-card h3{font-size:16.5px;padding-right:38px}
 .eat-card .catch{font-size:12px;font-weight:700;color:#A85A11}
@@ -326,52 +339,62 @@ const EATS=[
   desc:"鶏ガラ醤油スープを土鍋でグツグツ煮込む鍋焼きラーメンの超人気専門店。親鳥・ちくわ・生卵入りで並600円前後。ご飯を追加して雑炊風に締めるのが定番。",
   hours:"11:00〜15:00（昼のみ）／日月火休 → 金土OK",area:"須崎市（高知市から車で約40分）",
   tips:"土曜昼は行列必至、開店直後11時が狙い目。スープ切れで早じまいの日あり。",
-  gmap:"橋本食堂 須崎市 鍋焼きラーメン",link:"https://tabelog.com/kochi/A3903/A390301/39000046/"},
+  gmap:"橋本食堂 須崎市 鍋焼きラーメン",tabelog:"https://tabelog.com/kochi/A3903/A390301/39000046/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/c/c4/%E9%8D%8B%E7%84%BC%E3%81%8D%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%B3.JPG",generic:false,photoDesc:"橋本食堂の鍋焼きラーメン"},
  {id:"e2",g:"わざわざ行きたい名物店",emoji:"🥟",name:"屋台安兵衛",catch:"深夜に並ぶ伝説の屋台餃子",
   desc:"昭和45年創業、高知の夜文化を代表する屋台。パリパリ薄皮の一口餃子は7個500円。餃子百名店選出。飲んだ後の〆の一皿が高知流。",
   hours:"金19:00〜翌3:00／土19:00〜翌4:00（日休）",area:"高知市 廿代町（高知駅徒歩約10分）",
   tips:"予約不可で行列が常態。ピークは22時〜深夜1時。昼〜夜早めなら姉妹店「ひろめで安兵衛」でも食べられる。",
-  gmap:"屋台安兵衛 高知市廿代町",link:"https://tabelog.com/kochi/A3901/A390101/39000019/"},
+  gmap:"屋台安兵衛 高知市廿代町",tabelog:"https://tabelog.com/kochi/A3901/A390101/39000019/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/%E7%84%BC%E3%81%8D%E9%A4%83%E5%AD%90_%282597379807%29.jpg/1280px-%E7%84%BC%E3%81%8D%E9%A4%83%E5%AD%90_%282597379807%29.jpg",generic:true,photoDesc:"焼き餃子のイメージ"},
  {id:"e3",g:"わざわざ行きたい名物店",emoji:"🍱",name:"くいしんぼ如月",catch:"県民のソウルフード弁当チェーン",
   desc:"高知県内のみ展開のローカル弁当チェーン。名物「チキンナンバン」はタルタルではなく特製ソースのから揚げ弁当で500〜730円。注文後に作る出来立て提供。",
-  hours:"概ね7:00〜24:00・年中無休（店舗により異なる）",area:"県内多店舗（ひろめ市場近くは追手筋グリーンロード店）",
+  hours:"上街店7:00〜24:00・年中無休（他店舗は各店要確認）",area:"県内多店舗（中心部からは上街店が便利。グリーンロード店は閉店済み）",
   tips:"注文後調理で数分待つ。ドライブ日の朝に買って車で食べるのも◎。",
-  gmap:"くいしんぼ如月 グリーンロード店 高知市追手筋",link:"https://www.nanban-tabetai.com/"},
+  gmap:"くいしんぼ如月 上街店 高知市上町",link:"https://www.nanban-tabetai.com/",tabelog:"https://tabelog.com/kochi/A3901/A390101/39006138/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/8/8c/Chicken_nanban_jetalone_in_Tsukishima%2C_Tokyo.jpg",generic:true,photoDesc:"チキン南蛮のイメージ"},
  {id:"e4",g:"喫茶モーニング（高知は朝からしっかり派）",emoji:"🍞",name:"喫茶デポー 京町店",catch:"味噌汁つき高知モーニングの代表",
   desc:"はりまや橋徒歩1分、創業45年超の老舗。名物「高知のモーニング」はトースト・おにぎり・味噌汁・オムレツ・ゆで卵・サラダ・フルーツが一皿に載って1,000円前後。",
   hours:"8:00〜21:00・無休（モーニング8:00〜11:00）",area:"高知市 はりまや町",
   tips:"朝は観光客と常連で混雑あり。モーニング目的なら11時までに。",
-  gmap:"喫茶デポー 京町店 高知市はりまや町",link:"https://s578108.gorp.jp/"},
+  gmap:"喫茶デポー 京町店 高知市はりまや町",link:"https://s578108.gorp.jp/",tabelog:"https://tabelog.com/kochi/A3901/A390101/39002401/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/%E3%81%84%E3%82%8F%E3%82%86%E3%82%8B%E5%96%AB%E8%8C%B6%E5%BA%97%E3%81%AE%E3%83%A2%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%80%82_%287072356845%29.jpg/1280px-%E3%81%84%E3%82%8F%E3%82%86%E3%82%8B%E5%96%AB%E8%8C%B6%E5%BA%97%E3%81%AE%E3%83%A2%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%80%82_%287072356845%29.jpg",generic:true,photoDesc:"喫茶店モーニングのイメージ"},
  {id:"e5",g:"喫茶モーニング（高知は朝からしっかり派）",emoji:"☕",name:"メフィストフェレス",catch:"1964年創業のレトロ本格喫茶",
   desc:"帯屋町アーケードの老舗。ドリンク代+100円でバタートースト・サラダ・ゆで卵が付く昔ながらのお得モーニング。自家焙煎珈琲と重厚なレトロ空間。",
   hours:"土日祝8:00〜／平日9:00〜21:00・無休（モーニング〜14:00）",area:"高知市 帯屋町（ひろめ市場徒歩すぐ）",
   tips:"土曜は8時開店で朝から動ける。休日午前は満席になることも。",
-  gmap:"メフィストフェレス 高知市帯屋町 喫茶店",link:"https://tabelog.com/kochi/A3901/A390101/39000603/"},
+  gmap:"メフィストフェレス 高知市帯屋町 喫茶店",tabelog:"https://tabelog.com/kochi/A3901/A390101/39000603/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/%E5%90%8D%E6%9B%B2%E5%96%AB%E8%8C%B6%E3%83%B4%E3%82%A3%E3%82%AA%E3%83%AD%E3%83%B3.jpg/1280px-%E5%90%8D%E6%9B%B2%E5%96%AB%E8%8C%B6%E3%83%B4%E3%82%A3%E3%82%AA%E3%83%AD%E3%83%B3.jpg",generic:true,photoDesc:"レトロ喫茶の店内イメージ"},
  {id:"e6",g:"喫茶モーニング（高知は朝からしっかり派）",emoji:"🍝",name:"パスタカフェ 八乃森",catch:"選べる15種の満腹モーニング",
   desc:"モーニングが全15種。人気のトースト&目玉焼きセットはパスタ・唐揚げ・サラダ・スープ・ゼリーまで付く高知らしいボリュームで600〜900円台。",
   hours:"8:00〜21:00・無休（モーニング8:00〜11:00）",area:"高知市 宝永町（駐車場あり）",
   tips:"平日でも満席になる人気店。休日朝は開店直後が確実。",
-  gmap:"パスタカフェ八乃森 高知市宝永町",link:"https://tabelog.com/kochi/A3901/A390101/39000125/"},
+  gmap:"パスタカフェ八乃森 高知市宝永町",tabelog:"https://tabelog.com/kochi/A3901/A390101/39000125/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Spaghetti_Naporitan_002.jpg/1280px-Spaghetti_Naporitan_002.jpg",generic:true,photoDesc:"パスタのイメージ"},
  {id:"e7",g:"カツオと昼飲み・居酒屋",emoji:"🔥",name:"明神丸 ひろめ市場店",catch:"塩たたき発祥、藁焼きライブ",
   desc:"カツオ一本釣り船団直営で「塩たたき」発祥の店。藁の炎が上がる焼きの実演が名物。たたき単品1,000〜1,500円前後と手頃。",
   hours:"金土11:00〜21:00（市場内店舗のため変動あり）",area:"ひろめ市場内",
   tips:"予約不可・席取り合戦。週末は11時台入場が無難。",
-  gmap:"明神丸 ひろめ市場店",link:"https://tabelog.com/kochi/A3901/A390101/39000071/"},
+  gmap:"明神丸 ひろめ市場店",tabelog:"https://tabelog.com/kochi/A3901/A390101/39000071/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Bonito_tataki_at_Hirome_Market_%286453600279%29.jpg/1280px-Bonito_tataki_at_Hirome_Market_%286453600279%29.jpg",generic:true,photoDesc:"ひろめ市場のカツオのたたき"},
  {id:"e8",g:"カツオと昼飲み・居酒屋",emoji:"🐟",name:"やいろ亭",catch:"ひろめ市場屈指の塩たたき",
   desc:"ひろめ市場内で明神丸と人気を二分するカツオの名店。厚切りの藁焼き塩たたきが看板。「初めてのたたきならここ」と推す地元記事も多い。",
   hours:"金土11:30〜22:00（市場内店舗のため変動あり）",area:"ひろめ市場内",
   tips:"明神丸と両方買って食べ比べるのが定番の楽しみ方。",
-  gmap:"やいろ亭 ひろめ市場",link:"https://tabelog.com/kochi/A3901/A390101/39000089/"},
+  gmap:"やいろ亭 ひろめ市場",tabelog:"https://tabelog.com/kochi/A3901/A390101/39000089/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Katsuo_no_tataki_in_Kochi_01.jpg/1280px-Katsuo_no_tataki_in_Kochi_01.jpg",generic:true,photoDesc:"カツオの塩たたきのイメージ"},
  {id:"e9",g:"カツオと昼飲み・居酒屋",emoji:"🏮",name:"居酒屋 葉牡丹",catch:"昼酒呑兵衛の聖地・老舗大衆酒場",
   desc:"昭和25年創業の老舗大衆酒場。昼11時から通しで飲めるのが名物で、カツオのたたき・ウツボ唐揚げ・おでん（すまき入り）など土佐名物が一品400〜900円台。",
   hours:"11:00〜23:00／水休 → 金土OK",area:"高知市 堀詰（中央公園前）",
   tips:"2名の予約は月〜木のみ（金土は4名〜）。2人なら早め入店推奨。",
-  gmap:"居酒屋 葉牡丹 高知市 堀詰",link:"https://tabelog.com/kochi/A3901/A390101/39000468/"},
+  gmap:"居酒屋 葉牡丹 高知市 堀詰",tabelog:"https://tabelog.com/kochi/A3901/A390101/39000468/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/2016-02-06_Oden-%E3%81%8A%E3%81%A7%E3%82%93%E3%83%BB%E9%96%A2%E6%9D%B1%E7%85%AE_DSCF8726.JPG/1280px-2016-02-06_Oden-%E3%81%8A%E3%81%A7%E3%82%93%E3%83%BB%E9%96%A2%E6%9D%B1%E7%85%AE_DSCF8726.JPG",generic:true,photoDesc:"おでんのイメージ"},
  {id:"e10",g:"カツオと昼飲み・居酒屋",emoji:"🍶",name:"居酒屋 大黒堂",catch:"地元民が推す塩たたきの名店",
   desc:"はりまや橋近くの海鮮居酒屋。藁焼きカツオの塩たたき（約1,500円）は粗塩との相性が絶妙と評判で地元民の推薦率が高い。土佐の食材と地酒が揃う。",
   hours:"17:00〜24:00（土は〜翌1:00）／日休 → 金土OK",area:"高知市 はりまや町",
   tips:"金土の夜は予約推奨（電話・ネット予約可）。",
-  gmap:"居酒屋 大黒堂 高知市はりまや町",link:"https://katsuotataki.net/"}
+  gmap:"居酒屋 大黒堂 高知市はりまや町",link:"https://katsuotataki.net/",tabelog:"https://tabelog.com/kochi/A3901/A390101/39000720/",
+  photo:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Katsuo_no_tataki_at_Kochi_City.jpg/1280px-Katsuo_no_tataki_at_Kochi_City.jpg",generic:true,photoDesc:"カツオのたたきのイメージ"}
 ];
 
 const GOURMET=[
@@ -419,6 +442,10 @@ const OMIYAGE=[
 const $=s=>document.querySelector(s);
 const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
 const mapUrl=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
+const PREF_PATH="M46,98 L93,70 L120,19 L204,15 L268,33 L342,70 L320,135 L278,98 L213,89 L167,98 L120,126 L93,163 L105,233 L65,228 L33,224 L46,191 L19,144 Z";
+const miniMap=(x,y)=>`<svg class="minimap" viewBox="0 0 362 258" aria-hidden="true"><path class="pref" d="${PREF_PATH}"/><circle class="dot" cx="${x}" cy="${y}" r="20"/></svg>`;
+const MM={s1:[135,56],s2:[83,94],s3:[33,224],s4:[93,181],s5:[207,89],s6:[200,78],s7:[198,76],s8:[209,80],s9:[315,126],s10:[199,77],
+          e1:[154,107],e2:[200,78],e3:[200,78],e4:[201,79],e5:[200,78],e6:[203,80],e7:[200,78],e8:[200,78],e9:[199,78],e10:[201,79]};
 const seasonBadge=g=>g.season==="shun"?`<span class="badge b-shun">🌟 ${g.snote}</span>`:g.season==="off"?`<span class="badge b-off">⚠️ ${g.snote}</span>`:`<span class="badge b-must" style="background:#F0F4F3;color:#4F6468">${g.snote}</span>`;
 const stars=n=>"★".repeat(n)+"☆".repeat(3-n);
 
@@ -428,6 +455,7 @@ $("#spots-list").innerHTML=SPOTS.map(s=>`
    <img src="${s.photo}" alt="${esc(s.name)}" loading="lazy">
    <div class="chip-row"><span class="chip">📍 ${esc(s.area)}</span><span class="chip">🚗 ${esc(s.drive)}</span>${s.photoNote?`<span class="chip">${esc(s.photoNote)}</span>`:""}</div>
    <button class="heart" data-pick="${s.id}" aria-label="行きたいに追加"></button>
+   ${miniMap(...MM[s.id])}
   </div>
   <div class="body">
    <div class="eyebrow">${esc(s.catch)}</div>
@@ -449,8 +477,10 @@ let lastG="";
 $("#eats-list").innerHTML=EATS.map(e=>{
  const head=e.g!==lastG?`<div class="subgroup">${esc(e.g)}</div>`:"";lastG=e.g;
  return head+`
- <article class="eat-card" id="${e.id}" data-name="${esc(e.name)}" data-cat="食事">
+ <article class="eat-card${e.photo?" has-ph":""}" id="${e.id}" data-name="${esc(e.name)}" data-cat="食事">
+  ${e.photo?`<div class="eph"><img src="${e.photo}" alt="${esc(e.photoDesc||e.name)}" loading="lazy">${e.generic?`<span class="chip">写真はイメージ</span>`:""}</div>`:""}
   <button class="heart" data-pick="${e.id}" style="position:absolute;top:12px;right:12px" aria-label="行きたいに追加"></button>
+  ${miniMap(...MM[e.id])}
   <div class="top">
    <div class="avatar">${e.emoji}</div>
    <div><div class="catch">${esc(e.catch)}</div><h3>${esc(e.name)}</h3></div>
@@ -463,7 +493,8 @@ $("#eats-list").innerHTML=EATS.map(e=>{
   </div>
   <div class="links">
    <a class="map" href="${mapUrl(e.gmap)}" target="_blank" rel="noopener">📍 地図</a>
-   <a class="site" href="${e.link}" target="_blank" rel="noopener">🔗 くわしく</a>
+   ${e.tabelog?`<a class="tbl" href="${e.tabelog}" target="_blank" rel="noopener">🍽 食べログ</a>`:""}
+   ${e.link&&e.link!==e.tabelog?`<a class="site" href="${e.link}" target="_blank" rel="noopener">🔗 公式</a>`:""}
   </div>
  </article>`}).join("");
 
