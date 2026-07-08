@@ -106,7 +106,10 @@ section{padding-top:34px}
 .mini-card .heart,.eat-card .heart{width:32px;height:32px;font-size:15px;box-shadow:none;background:#F2F7F6}
 
 /* ===== minimap ===== */
-.minimap{position:absolute;top:10px;right:56px;width:58px;height:auto;background:rgba(255,255,255,.92);border-radius:10px;padding:4px 5px;box-shadow:0 1px 6px rgba(0,0,0,.18);display:block}
+.minimap{position:absolute;top:10px;right:56px;width:58px;background:rgba(255,255,255,.92);border-radius:10px;padding:4px 5px;box-shadow:0 1px 6px rgba(0,0,0,.18);display:block}
+.minimap svg{display:block;width:100%;height:auto}
+.minimap.is-city{padding-bottom:14px}
+.minimap .city{position:absolute;left:50%;transform:translateX(-50%);bottom:3px;font-size:9px;font-weight:900;font-style:normal;color:#fff;background:#0A5560;border-radius:99px;padding:0 8px;line-height:13px;white-space:nowrap}
 .minimap .pref{fill:#DFEEEF;stroke:#5E9AA0;stroke-width:5}
 .minimap .dot{fill:var(--red);stroke:#fff;stroke-width:6}
 .eat-card .minimap{top:12px;right:50px;background:#F2F7F6;box-shadow:none;width:52px}
@@ -443,7 +446,8 @@ const $=s=>document.querySelector(s);
 const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
 const mapUrl=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
 const PREF_PATH="M46,98 L93,70 L120,19 L204,15 L268,33 L342,70 L320,135 L278,98 L213,89 L167,98 L120,126 L93,163 L105,233 L65,228 L33,224 L46,191 L19,144 Z";
-const miniMap=(x,y)=>`<svg class="minimap" viewBox="0 0 362 258" aria-hidden="true"><path class="pref" d="${PREF_PATH}"/><circle class="dot" cx="${x}" cy="${y}" r="20"/></svg>`;
+const CITY=new Set(["s5","s6","s7","s8","s10","e2","e3","e4","e5","e6","e7","e8","e9","e10"]);
+const miniMap=(x,y,id)=>`<span class="minimap${CITY.has(id)?" is-city":""}" aria-hidden="true"><svg viewBox="0 0 362 258"><path class="pref" d="${PREF_PATH}"/><circle class="dot" cx="${x}" cy="${y}" r="20"/></svg>${CITY.has(id)?`<b class="city">市内</b>`:""}</span>`;
 const MM={s1:[135,56],s2:[83,94],s3:[33,224],s4:[93,181],s5:[207,89],s6:[200,78],s7:[198,76],s8:[209,80],s9:[315,126],s10:[199,77],
           e1:[154,107],e2:[200,78],e3:[200,78],e4:[201,79],e5:[200,78],e6:[203,80],e7:[200,78],e8:[200,78],e9:[199,78],e10:[201,79]};
 const seasonBadge=g=>g.season==="shun"?`<span class="badge b-shun">🌟 ${g.snote}</span>`:g.season==="off"?`<span class="badge b-off">⚠️ ${g.snote}</span>`:`<span class="badge b-must" style="background:#F0F4F3;color:#4F6468">${g.snote}</span>`;
@@ -455,7 +459,7 @@ $("#spots-list").innerHTML=SPOTS.map(s=>`
    <img src="${s.photo}" alt="${esc(s.name)}" loading="lazy">
    <div class="chip-row"><span class="chip">📍 ${esc(s.area)}</span><span class="chip">🚗 ${esc(s.drive)}</span>${s.photoNote?`<span class="chip">${esc(s.photoNote)}</span>`:""}</div>
    <button class="heart" data-pick="${s.id}" aria-label="行きたいに追加"></button>
-   ${miniMap(...MM[s.id])}
+   ${miniMap(...MM[s.id],s.id)}
   </div>
   <div class="body">
    <div class="eyebrow">${esc(s.catch)}</div>
@@ -480,7 +484,7 @@ $("#eats-list").innerHTML=EATS.map(e=>{
  <article class="eat-card${e.photo?" has-ph":""}" id="${e.id}" data-name="${esc(e.name)}" data-cat="食事">
   ${e.photo?`<div class="eph"><img src="${e.photo}" alt="${esc(e.photoDesc||e.name)}" loading="lazy">${e.generic?`<span class="chip">写真はイメージ</span>`:""}</div>`:""}
   <button class="heart" data-pick="${e.id}" style="position:absolute;top:12px;right:12px" aria-label="行きたいに追加"></button>
-  ${miniMap(...MM[e.id])}
+  ${miniMap(...MM[e.id],e.id)}
   <div class="top">
    <div class="avatar">${e.emoji}</div>
    <div><div class="catch">${esc(e.catch)}</div><h3>${esc(e.name)}</h3></div>
