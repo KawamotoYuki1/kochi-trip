@@ -37,8 +37,15 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 .hero .date{display:inline-block;font-weight:700;font-size:13px;letter-spacing:.14em;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:99px;padding:4px 14px;margin-bottom:14px}
 .hero h1{font-size:clamp(30px,8.5vw,44px);font-weight:900;letter-spacing:.06em;line-height:1.25}
 .hero h1 small{display:block;font-size:.42em;font-weight:700;letter-spacing:.3em;opacity:.85;margin-top:6px}
-.hero p{margin-top:12px;font-size:13.5px;opacity:.92;max-width:34em}
-.hero .heart-hint{margin-top:14px;font-size:12.5px;background:rgba(255,255,255,.14);border-radius:12px;padding:8px 12px;display:inline-flex;gap:6px;align-items:center}
+/* map */
+.kmap{width:100%;height:auto;display:block;margin:4px 0 10px}
+.kmap .pref{fill:#FFFFFF;stroke:#8FC0C4;stroke-width:2;stroke-linejoin:round}
+.kmap .spot{fill:var(--red)}
+.kmap .spot.eat{fill:var(--orange)}
+.kmap .home{fill:var(--brand-deep)}
+.kmap text{font-family:'Zen Kaku Gothic New',sans-serif;font-size:11px;font-weight:700;fill:#1E3538}
+.kmap text.t{font-size:9.5px;font-weight:500;fill:#54696D}
+.kmap .sea{font-size:10px;fill:#7FA9AE;font-weight:500;letter-spacing:.2em}
 
 /* ===== nav ===== */
 .nav{position:sticky;top:0;z-index:50;background:rgba(242,247,246,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;gap:8px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
@@ -163,8 +170,6 @@ footer{margin-top:44px;text-align:center;font-size:11.5px;color:var(--sub);paddi
 <header class="hero">
   <span class="date">2026.7.10 FRI — 7.11 SAT</span>
   <h1>高知たび<small>KOCHI TRIP GUIDE</small></h1>
-  <p>友だちオススメの全スポット＆グルメを調査してまとめたよ。ふたりで見ながら、行きたいところを選ぼう。</p>
-  <span class="heart-hint">🤍をタップ → ❤️で「行きたいリスト」に追加されるよ</span>
 </header>
 
 <nav class="nav">
@@ -182,6 +187,29 @@ footer{margin-top:44px;text-align:center;font-size:11.5px;color:var(--sub);paddi
 
   <div class="area-guide">
     <div class="ag-title">🚗 エリアと車での距離感（高知市から）</div>
+    <svg class="kmap" viewBox="0 0 362 258" role="img" aria-label="高知県の略地図とスポットの位置">
+      <path class="pref" d="M46,98 L93,70 L120,19 L204,15 L268,33 L342,70 L320,135 L278,98 L213,89 L167,98 L120,126 L93,163 L105,233 L65,228 L33,224 L46,191 L19,144 Z"/>
+      <text class="sea" x="150" y="205">太 平 洋</text>
+      <!-- 高知市 -->
+      <circle class="home" cx="200" cy="78" r="7"/>
+      <circle cx="200" cy="78" r="3" fill="#fff"/>
+      <text x="211" y="75">高知市</text>
+      <!-- 観光スポット -->
+      <circle class="spot" cx="135" cy="56" r="5"/>
+      <text x="120" y="44">にこ淵</text><text class="t" x="163" y="44">1h</text>
+      <circle class="spot" cx="83" cy="94" r="5"/>
+      <text x="30" y="84">四国カルスト</text><text class="t" x="95" y="84">2h</text>
+      <circle class="spot" cx="93" cy="181" r="5"/>
+      <text x="103" y="177">沈下橋</text><text class="t" x="143" y="177">2h</text>
+      <circle class="spot" cx="33" cy="224" r="5"/>
+      <text x="42" y="220">柏島</text><text class="t" x="68" y="220">3h</text>
+      <circle class="spot" cx="207" cy="89" r="5"/>
+      <text x="214" y="103">桂浜</text><text class="t" x="240" y="103">30分</text>
+      <circle class="spot" cx="315" cy="126" r="5"/>
+      <text x="238" y="152">むろと廃校水族館</text><text class="t" x="330" y="152">2h</text>
+      <circle class="spot eat" cx="154" cy="107" r="5"/>
+      <text x="112" y="126">須崎・鍋焼きラーメン</text><text class="t" x="222" y="126">40分</text>
+    </svg>
     <ul>
       <li><b>高知市内</b>高知城・ひろめ市場・桂浜・牧野植物園（〜30分）</li>
       <li><b>仁淀川</b>にこ淵（約1時間）</li>
